@@ -6,6 +6,7 @@ require 'active_resource/railtie'
 require 'rails/test_unit/railtie'
 require 'sprockets/railtie'
 require 'neo4j'
+require 'neo4j-admin/railtie'
 
 
 if defined?(Bundler)

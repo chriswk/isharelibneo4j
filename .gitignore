@@ -73,3 +73,6 @@ tmp/*
 *.iws
 *.ipr
 *.ids
+
+# shell
+.shell_history
