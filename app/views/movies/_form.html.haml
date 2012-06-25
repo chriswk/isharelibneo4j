@@ -1,16 +1,7 @@
-= form_for @movie do |f|
-  -if @movie.errors.any?
-    #error_explanation
-      %h2= "#{pluralize(@movie.errors.count, "error")} prohibited this movie from being saved:"
-      %ul
-        - @movie.errors.full_messages.each do |msg|
-          %li= msg
+= semantic_form_for @movie do |f|
+  = f.inputs do
+    = f.input :title
+    = f.input :release_year
+  = f.buttons do
+    = f.commit_button
 
-  .field
-    = f.label :title
-    = f.text_field :title
-  .field
-    = f.label :release_year
-    = f.text_field :release_year
-  .actions
-    = f.submit 'Save'

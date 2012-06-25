@@ -5,4 +5,5 @@ class Person < Neo4j::Rails::Model
   property :tmdb_url, :index => :exact, :unique => :true
   property :imdb_url, :index => :exact, :unique => :true
   has_n(:acted_in).to(Movie).relationship(Role)
+
 end

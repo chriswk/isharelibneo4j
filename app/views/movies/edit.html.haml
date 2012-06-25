@@ -2,6 +2,10 @@
 
 = render 'form'
 
-= link_to 'Show', @movie
+= link_to @movie, :class => "btn" do
+  %i.icon-zoom-in
+  = I18n.t('show', :default => "Show")
 \|
-= link_to 'Back', movies_path
+= link_to movies_path, :class => "btn" do
+    %i.icon-list
+    = I18.t('movies.list', :default => "All movies")
