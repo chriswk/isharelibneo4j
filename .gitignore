@@ -15,6 +15,7 @@
 # minimal Rails specific artifacts
 db/*.sqlite3
 db/*db*
+db/neo4j*
 /log/*
 tmp/*
 
