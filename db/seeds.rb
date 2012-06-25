@@ -7,4 +7,4 @@
 #   Mayor.create(:name => 'Emanuel', :city => cities.first)
 
 movies = Movie.create([{:title => "The Matrix", :release_year => 1999}, {:title => "The Matrix Revolutions", :release_year => 2003}, {:title => "The Matrix Reloaded", :release_year => 2003}])
-actors = Person.create([{:name => "Keanu Reeves", :birth_date => Date.parse('1964-09-02')}, [:name => "Carrie-Anne Moss", :birth_date => Date.parse("1967-08-21")], [:name => "Laurence Fishburne", :birth_date => Date.parse("1961-07-30")], [:name => "Hugo Weaving", :birth_date => Date.parse("1960-04-04")]])
+actors = Person.create([{:name => "Keanu Reeves", :birth_date => Date.parse('1964-09-02')}, [:name => "Carrie-Anne Moss", :birth_date => Date.parse("1967-08-21")], [:name => "Laurence Fishburne", :birth_date => Date.parse("1961-07-30")], {:name => "Hugo Weaving", :birth_date => Date.parse("1960-04-04")}])
