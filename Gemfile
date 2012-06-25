@@ -32,3 +32,7 @@ gem 'jquery-rails'
 gem 'haml'
 gem 'haml-rails'
 
+gem "formtastic", "~> 2.1"
+gem "formtastic-plus-bootstrap"
+
+gem 'ruby-tmdb'

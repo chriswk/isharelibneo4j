@@ -1,0 +1,16 @@
+.navbar.navbar-fixed-top
+  .navbar-inner
+    .container-fluid
+      %a.btn.btn-navbar{:data => {:toggle => 'collapse', :target => '.nav-collapse'}}
+        %span.icon-bar
+        %span.icon-bar
+        %span.icon-bar
+      = link_to "ISharelib", root_url, { :class => "brand" }
+      .nav-collapse
+        %ul.nav
+          %li
+            = link_to "Movies", movies_url
+          %li
+            = link_to "People", people_url
+          %li
+            = link_to "My Collection", ""
