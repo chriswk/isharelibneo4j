@@ -7,6 +7,7 @@ class Movie < Neo4j::Rails::Model
   property :overview
   property :released, :type => Date
   has_n(:people).from(Person, :acted_in)
+  has_n(:sequels)
   validates_presence_of :title
 
 end
