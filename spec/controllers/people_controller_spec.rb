@@ -26,7 +26,7 @@ describe PeopleController do
   def valid_attributes
     {
       :name => "Test person",
-      :birth_date => Date.now,
+      :birth_date => Date.parse('1999-01-01'),
     }
   end
   
