@@ -25,3 +25,23 @@ hugo = Person.new(:name => "Hugo Weaving", :birth_date => Date.parse("1960-04-04
   end
   actor.save
 end
+
+keanu.acted_in_rels.each do |role|
+  role.character = "Neo"
+  role.save
+end
+
+carrie.acted_in_rels.each do |role|
+  role.character = "Trinity"
+  role.save
+end
+
+laurence.acted_in_rels.each do |role|
+  role.character = "Morpheus"
+  role.save
+end
+
+hugo.acted_in_rels.each do |role|
+  role.character = "Agent Smith"
+  role.save
+end
