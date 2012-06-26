@@ -15,13 +15,18 @@ class Person < Neo4j::Rails::Model
   end
   
   def map_movie_role(movie, role)
-    map_from_tmdb(TmdbCast.find(:id => role.id)) unless self.tmdb_id
+    map_from_tmdb(TmdbCast.find(:id => role.id)) unless self.name && self.birthdate
     self.acted_in.create(:title => movie.title, :character => role.character)
+    self.save
   end
   
   def map_from_tmdb(tmdb)
     self.name = tmdb.name
     self.birth_date = Date.parse(tmdb.birthday)
     self.tmdb_id = tmdb.id
+  end
+  
+  def find_or_create(tmdb_id)
+    Person.find(:tmdb_id => tmdb_id) || Person.new(:tmdb_id => tmdb_id)
   end
 end

@@ -11,8 +11,8 @@ class Movie < Neo4j::Rails::Model
   validates_presence_of :title
   validates_uniqueness_of :tmdb_id, :imdb_id
 
-  def update_from_tmdb_id(tmdb_id)
-    tm_movie = TmdbMovie.find(:id => tmdb_id)
+  def update_from_tmdb()
+    tm_movie = TmdbMovie.find(:id => self.tmdb_id)
     self.map_tmdb(tm_movie)
     self.save
   end
@@ -30,8 +30,12 @@ class Movie < Neo4j::Rails::Model
   
   def map_cast(cast)
     cast.each do |role|
-      person = Person.find(role.id) ||= Person.new
+      person = Person.find_or_create(:tmdb_id => role.id)
       person.map_movie_role(self, role)
     end
+  end
+  
+  def find_or_create(tmdb_id)
+    Movie.find(:tmdb_id => tmdb_id) || Movie.new(:tmdb_id)
   end
 end
