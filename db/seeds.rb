@@ -25,7 +25,7 @@ kristin.acted_in_rels.to_a do |role|
     when role.end_node == sf
       role.character == "Chun-Li"
     when role.end_node == earthsea
-      role.character = "Tirzah"
+      role.character = "Tenar"
     else
       puts "No known role for #{role.end_node}"
   end

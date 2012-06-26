@@ -13,10 +13,10 @@ namespace :tmdb do
   
   def create_initializer(apiKey, lang, initializerFile)
     tmdbSetup = <<-eos
-    require 'rubygems'
-    require 'ruby-tmdb'
-    Tmdb.api_key = "#{apiKey}"
-    Tmdb.default_language = "#{lang}"
+require 'rubygems'
+require 'ruby-tmdb'
+Tmdb.api_key = "#{apiKey}"
+Tmdb.default_language = "#{lang}"
     eos
     
     File.open(initializerFile, 'w') {|f| f.puts(tmdbSetup)}
