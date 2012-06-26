@@ -1,6 +1,7 @@
 GEM
   remote: https://rubygems.org/
   specs:
+    ZenTest (4.8.1)
     actionmailer (3.2.6)
       actionpack (= 3.2.6)
       mail (~> 2.4.4)
@@ -30,6 +31,9 @@ GEM
       multi_json (~> 1.0)
     addressable (2.2.8)
     arel (3.0.2)
+    autotest (4.4.6)
+      ZenTest (>= 4.4.1)
+    autotest-growl (0.2.16)
     bootstrap-sass (2.0.3.1)
     bouncy-castle-java (1.5.0146.1)
     builder (3.0.0)
@@ -69,7 +73,6 @@ GEM
       thor (~> 0.14)
     jruby-openssl (0.7.7)
       bouncy-castle-java (>= 1.5.0146.1)
-    json (1.7.3)
     json (1.7.3-java)
     mail (2.4.4)
       i18n (>= 0.4.0)
@@ -156,6 +159,9 @@ PLATFORMS
   java
 
 DEPENDENCIES
+  ZenTest
+  autotest
+  autotest-growl
   bootstrap-sass (~> 2.0.3)
   chosen-rails
   coffee-rails (~> 3.2.1)

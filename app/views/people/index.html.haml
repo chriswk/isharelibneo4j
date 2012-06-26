@@ -4,7 +4,8 @@
   %tr
     %th Name
     %th Birth date
-    %th
+    %th Age
+    %th 
     %th
     %th
 
@@ -12,6 +13,7 @@
     %tr
       %td= person.name
       %td= person.birth_date
+      %td= person.age
       %td= link_to 'Show', person
       %td= link_to 'Edit', edit_person_path(person)
       %td= link_to 'Destroy', person, :confirm => 'Are you sure?', :method => :delete

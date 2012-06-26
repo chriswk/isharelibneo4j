@@ -5,7 +5,6 @@ require 'rspec/autorun'
 
 Dir[Rails.root.join("spec/support/**/*.rb")].each {|f| require f}
 
-Rspec.configure do |config|
+RSpec.configure do |config|
   config.infer_base_class_for_anonymous_controllers = false
-  config.extend ControllerMacros, :type => :controller
 end

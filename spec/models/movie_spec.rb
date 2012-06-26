@@ -1,14 +1,29 @@
 require 'spec_helper'
 
 describe Movie do
-  it "allows to add a movie" do
-    m = Movie.create{:title => "Matrix", :release_year => 1999}
-    m.title.should eq("Matrix")
+  before(:each) do
+    @attrs = {
+      :title => "Test Movie",
+      :year => 1999,
+      :imdb_id => "tt1706593",
+      :tmdb_id => "15418-test"
+    }
+  end
+  it "should create a new instance given valid attributes" do
+    Movie.create!(@attrs)
   end
   
-  it "should retrieve a movie by title" do
-    m = Movie.create{:title => "Matrix", :release_year => 1999}
-    f = Movie.find(:first, :criteria => {:title => "Matrix"})
-    f.should eq(m)
+  it "should refuse a movie without a title" do
+    Movie.new(@attrs.merge(:title => "")).should_not be_valid
+  end
+  
+  it "should reject a movie with duplicate tmdb_id" do
+    Movie.create!(@attrs)
+    Movie.new(@attrs.merge(:imdb_id => "other")).should_not be_valid
+  end
+  
+  it "should reject a movie with duplicate imdb_id" do
+    Movie.create!(@attrs)
+    Movie.new(@attrs.merge(:tmdb_id => "different")).should_not be_valid
   end
 end

@@ -24,7 +24,10 @@ describe PeopleController do
   # Person. As you add validations to Person, be sure to
   # update the return value of this method accordingly.
   def valid_attributes
-    {}
+    {
+      :name => "Test person",
+      :birth_date => Date.now,
+    }
   end
   
   # This should return the minimal set of values that should be in the session
@@ -35,7 +38,7 @@ describe PeopleController do
   end
 
   describe "GET index" do
-    it "assigns all people as @people" do
+    it "assigns all peoples as @people" do
       person = Person.create! valid_attributes
       get :index, {}, valid_session
       assigns(:people).should eq([person])

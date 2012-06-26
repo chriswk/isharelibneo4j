@@ -11,7 +11,12 @@ group :development do
   gem 'rspec-rails'
 end
 
-
+group :test do
+  gem 'autotest'
+  gem 'autotest-growl'
+  gem 'ZenTest'
+  gem 'rspec-rails'
+end
 
 gem 'jruby-openssl'
 gem 'json'

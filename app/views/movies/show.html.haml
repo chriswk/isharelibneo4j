@@ -5,7 +5,12 @@
   = @movie.title
 %p
   %b Release year:
-  = @movie.release_year
+  = @movie.year
+
+%h3 People involved
+	%ul
+		- @movie.people_rel.each do |role|
+			%li= role
 
 = link_to 'Edit', edit_movie_path(@movie)
 \|
