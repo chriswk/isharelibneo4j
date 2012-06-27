@@ -11,7 +11,7 @@ class Movie < Neo4j::Rails::Model
   validates_presence_of :title
   validates_uniqueness_of :tmdb_id, :imdb_id
 
-  def update_from_tmdb()
+  def update_from_tmdb
     tm_movie = TmdbMovie.find(:id => self.tmdb_id)
     self.map_tmdb(tm_movie)
     self.save
@@ -22,7 +22,7 @@ class Movie < Neo4j::Rails::Model
     self.tmdb_id = tm_movie.id
     self.imdb_id = tm_movie.imdb_id
     self.tmdb_url = tm_movie.url
-    self.released = Date.parse(tm_movie.released)
+    self.released = Date.parse(tm_movie.released) rescue self.released = Date.parse("1970-01-01")
     self.year = self.released.year
     self.overview = tm_movie.overview
     map_cast(tm_movie.cast)
@@ -30,12 +30,9 @@ class Movie < Neo4j::Rails::Model
   
   def map_cast(cast)
     cast.each do |role|
-      person = Person.find_or_create(:tmdb_id => role.id)
+      person = Person.find_or_create_by(:tmdb_id => role.id)
       person.map_movie_role(self, role)
     end
   end
   
-  def find_or_create(tmdb_id)
-    Movie.find(:tmdb_id => tmdb_id) || Movie.new(:tmdb_id)
-  end
 end
