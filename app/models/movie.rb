@@ -6,14 +6,18 @@ class Movie < Neo4j::Rails::Model
   property :imdb_id, :index => :exact, :unique => true
   property :overview
   property :released, :type => Date
+  property :updated_at, :type => Date
+  property :created_at, :type => Date
   has_n(:people).from(Person, :acted_in)
   has_one(:sequel)
   validates_presence_of :title
   validates_uniqueness_of :tmdb_id, :imdb_id
 
   def update_from_tmdb
+    puts "Updating #{self}"
     tm_movie = TmdbMovie.find(:id => self.tmdb_id)
     self.map_tmdb(tm_movie)
+    puts "Updated to [#{self} - title: #{self.title} - tmdb_id #{self.tmdb_id}]"
     self.save
   end
   
@@ -32,6 +36,7 @@ class Movie < Neo4j::Rails::Model
     cast.each do |role|
       person = Person.find_or_create_by(:tmdb_id => role.id)
       person.map_movie_role(self, role)
+      puts "Found person [#{person} - #{person.tmdb_id} - #{person.name}]"
     end
   end
   

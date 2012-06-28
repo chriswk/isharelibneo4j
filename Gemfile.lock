@@ -34,7 +34,7 @@ GEM
     autotest (4.4.6)
       ZenTest (>= 4.4.1)
     autotest-growl (0.2.16)
-    bootstrap-sass (2.0.3.1)
+    bootstrap-sass (2.0.4.0)
     bouncy-castle-java (1.5.0146.1)
     builder (3.0.0)
     chosen-rails (0.9.8)
