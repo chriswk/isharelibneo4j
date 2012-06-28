@@ -32,8 +32,7 @@ class Person < Neo4j::Rails::Model
     tmdbPerson.filmography.each do |film|
       curMovie = Movie.find_or_create_by(:tmdb_id => film.id)
       curMovie.update_from_tmdb
-      
-      role = self.acted_in.find{|role| role == curMovie} || self.acted_in.create(:title => film.name, :character => curMovie.character)
+      role = self.acted_in.create(:title => film.name, :character => film.character) unless self.acted_in.find(curMovie)
     end
     self.save
   end
