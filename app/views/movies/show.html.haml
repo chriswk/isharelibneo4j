@@ -7,11 +7,19 @@
   %b Release year:
   = @movie.year
 
-%h3 People involved
-	%ul
-		- @movie.people_rel.each do |role|
-			%li= role
-
+%h3
+  People involved
+  %table.table-striped
+    %thead
+      %tr
+        %th Job
+        %th Name
+        %th Role
+    - @movie.people_rels.each do |role|
+      %tr
+        %td= role.job
+        %td= link_to role.start_node.name, person_url(role.start_node.id)
+        %td= role.character
 = link_to 'Edit', edit_movie_path(@movie)
 \|
 = link_to 'Back', movies_path
