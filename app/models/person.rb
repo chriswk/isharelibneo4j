@@ -22,12 +22,19 @@ class Person < Neo4j::Rails::Model
   
   def map_from_tmdb(tmdb)
     self.name = tmdb.name
-    puts tmdb.birthday
     self.birth_date = Date.parse(tmdb.birthday) rescue self.birth_date = Date.parse("1970-01-01")
-    self.tmdb_id = tmdb.id
+    self.tmdb_id = tmdb.id unless self.tmdb_id
   end
   
-  def find_or_create(tmdb_id)
-    Person.find(:tmdb_id => tmdb_id) || Person.new(:tmdb_id => tmdb_id)
+  def update_from_tmdb
+    tmdbPerson = TmdbCast.find(:id => self.tmdb_id)
+    map_from_tmdb(tmdbPerson)
+    tmdbPerson.filmography.each do |film|
+      curMovie = Movie.find_or_create_by(:tmdb_id => film.id)
+      curMovie.update_from_tmdb
+      
+      role = self.acted_in.find{|role| role == curMovie} || self.acted_in.create(:title => film.name, :character => curMovie.character)
+    end
+    self.save
   end
 end
