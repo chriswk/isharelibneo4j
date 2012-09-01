@@ -1,7 +1,6 @@
 source 'https://rubygems.org'
 
-gem 'rails', '3.2.6'
-
+gem 'rails'
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
 
@@ -37,7 +36,7 @@ end
 gem 'jquery-rails'
 gem 'haml'
 gem 'haml-rails'
-
+gem 'seed-fu'
 gem "formtastic", "~> 2.1"
 gem "formtastic-plus-bootstrap"
 

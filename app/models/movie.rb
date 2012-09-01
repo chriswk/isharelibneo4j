@@ -8,6 +8,7 @@ class Movie < Neo4j::Rails::Model
   property :released, :type => Date
   property :updated_at, :type => Date
   property :created_at, :type => Date
+  has_n(:countries).to(Country)
   has_n(:people).from(Person, :acted_in)
   has_one(:sequel)
   validates_presence_of :title
