@@ -36,7 +36,7 @@ end
 gem 'jquery-rails'
 gem 'haml'
 gem 'haml-rails'
-gem 'seed-fu'
+
 gem "formtastic", "~> 2.1"
 gem "formtastic-plus-bootstrap"
 

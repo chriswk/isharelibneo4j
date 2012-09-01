@@ -2,3 +2,4 @@
   m = Movie.find_or_create_by(:tmdb_id => movie_id)
   m.update_from_tmdb
 end
+puts "Done updating"

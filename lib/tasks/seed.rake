@@ -3,5 +3,6 @@ namespace :db do
   task :seed => :environment do
     seed_file = File.join(Rails.root, 'db', 'seeds.rb')
     load(seed_file) if File.exist?(seed_file)
+
   end
 end

@@ -30,7 +30,9 @@ class Movie < Neo4j::Rails::Model
     self.released = Date.parse(tm_movie.release_date) rescue self.released = Date.parse("1970-01-01")
     self.year = self.released.year
     self.overview = tm_movie.overview
+    map_countries(tm_movie.production_countries)
     map_cast(tm_movie.cast)
+
   end
   
   def map_cast(cast)
@@ -38,6 +40,15 @@ class Movie < Neo4j::Rails::Model
       person = Person.find_or_create_by(:tmdb_id => role.id)
       person.map_movie_role(self, role)
       puts "Found person [#{person} - #{person.tmdb_id} - #{person.name}]"
+    end
+  end
+
+  def map_countries(countries)
+    countries.each do |country|
+      c = Country.find_or_create_by(:iso_3166_1 => country.iso_3166_1)
+      c.name = country.name
+      c.save
+      self.countries << c
     end
   end
   
