@@ -26,7 +26,7 @@ class Movie < Neo4j::Rails::Model
     self.tmdb_id = tm_movie.id
     self.imdb_id = tm_movie.imdb_id
     self.tmdb_url = tm_movie.url
-    self.released = Date.parse(tm_movie.released) rescue self.released = Date.parse("1970-01-01")
+    self.released = Date.parse(tm_movie.release_date) rescue self.released = Date.parse("1970-01-01")
     self.year = self.released.year
     self.overview = tm_movie.overview
     map_cast(tm_movie.cast)
