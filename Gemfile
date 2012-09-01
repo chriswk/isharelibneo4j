@@ -42,5 +42,5 @@ gem "formtastic", "~> 2.1"
 gem "formtastic-plus-bootstrap"
 
 
-gem 'ruby-tmdb'
+gem 'ruby-tmdb3'
 gem 'neo4j-admin'

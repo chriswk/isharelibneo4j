@@ -24,8 +24,6 @@ class Person < Neo4j::Rails::Model
     if !self.acted_in.find(movie)
       curRole = self.acted_in_rels.connect(movie, {:title => role.name})
       curRole.character = role.character
-      curRole.job = role.job
-      curRole.department = role.department
       curRole.save
     end
     self.save

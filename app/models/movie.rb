@@ -22,7 +22,7 @@ class Movie < Neo4j::Rails::Model
   end
   
   def map_tmdb(tm_movie)
-    self.title = tm_movie.name
+    self.title = tm_movie.title
     self.tmdb_id = tm_movie.id
     self.imdb_id = tm_movie.imdb_id
     self.tmdb_url = tm_movie.url
