@@ -5,7 +5,7 @@ gem 'rails', '3.2.6'
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
 
-gem 'neo4j', '2.0.0'
+gem 'neo4j', '~> 2.0.1'
 
 group :development do
   gem 'rspec-rails'
