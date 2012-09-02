@@ -1,12 +1,12 @@
 %p#notice= notice
 .hero-unit
-  %h3= "#{@person.name} - born #{@person.birth_date.to_formatted_s(:long)} (Age: #{@person.age})"
+  %h2= @person.name
   %ul.thumbnails
     %li
       %img.thumbnail{:src => "http://placehold.it/360x270"}
-    %li.well
+    %li.well.span6
       %h3 Played in:
-      %table.table-striped
+      %table.table.table-striped
         %thead
           %tr
             %th Title
@@ -16,6 +16,13 @@
           %tr
             %td= link_to role.end_node.title, movie_url(role.end_node.id)
             %td= role.character
+    %li.span6
+      %h3 Birthday
+      = "#{@person.birth_date.to_formatted_s(:long)} (Age: #{@person.age})"
+    %li
+      %h3 Bio
+      %ul.thumbnails
+        %li.well= @person.biography
 
 = link_to 'Edit', edit_person_path(@person)
 \|

@@ -1,14 +1,14 @@
 %p#notice= notice
 .hero-unit
-  %ul
-    %li
-      %h2
-        = "#{@movie.title} (#{@movie.year})"
-    %li.span4
+  %h2
+    = "#{@movie.title} (#{@movie.year})"
+
+  %ul.thumbnails
+    %li.span2
       %img.thumbnail{:src => "http://placehold.it/360x270"}
-    %li.well
+    %li.well.span4
       %h3 People involved
-      %table.table-striped
+      %table.table.table-striped
         %tbody
         - @movie.people_rels.each do |role|
           %tr
@@ -16,9 +16,12 @@
             %td= role.character
     %li.well
       %h3 Recorded in:
-      %ul
-      - @movie.countries.each do |country|
-        %li= country.name
+      %table.table.table-striped
+        %tbody
+        - @movie.countries.each do |country|
+          %tr
+            %td= image_tag "/assets/flags/#{country.iso_3166_1.downcase}.png", :alt=>""
+            %td= country.name
   .well
     = link_to 'Edit', edit_movie_path(@movie)
     \|
