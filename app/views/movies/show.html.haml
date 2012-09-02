@@ -23,7 +23,7 @@
           %td= role.character
   .pull-right
     .well
-      In Country: @movie.country.name
+      In Country: @movie.countries.first.name
   .well
     = link_to 'Edit', edit_movie_path(@movie)
     \|

@@ -9,8 +9,9 @@
     = render 'topbar'
     = render 'alerts'
     .container-fluid
-      .row
-        .span10
+      .row-fluid
+        .span3
+          = render 'sidebar'
+        .span9
           = yield
-        .span2.pull-right
     = render 'footer'
