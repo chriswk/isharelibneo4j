@@ -1,29 +1,24 @@
 %p#notice= notice
 .hero-unit
-  %p
-    %b Title:
-    = @movie.title
-  %p
-    %b Release year:
-    = @movie.year
-
-  %h3
-    People involved
-  %table.table-striped
-    %thead
-      %tr
-        %th Job
-        %th Name
-        %th Role
-    %tbody
-      - @movie.people_rels.each do |role|
-        %tr
-          %td= role.job
-          %td= link_to role.start_node.name, person_url(role.start_node.id)
-          %td= role.character
-  .pull-right
-    .well
-      In Country: @movie.countries.first.name
+  %ul
+    %li
+      %h2
+        = "#{@movie.title} (#{@movie.year})"
+    %li.span4
+      %img.thumbnail{:src => "http://placehold.it/360x270"}
+    %li.well
+      %h3 People involved
+      %table.table-striped
+        %tbody
+        - @movie.people_rels.each do |role|
+          %tr
+            %td= link_to role.start_node.name, person_url(role.start_node.id)
+            %td= role.character
+    %li.well
+      %h3 Recorded in:
+      %ul
+      - @movie.countries.each do |country|
+        %li= country.name
   .well
     = link_to 'Edit', edit_movie_path(@movie)
     \|
