@@ -1,0 +1,20 @@
+%h1 Listing countries
+%table.table.table-striped.countries
+  %thead
+    %tr
+      %th Code
+      %th Name
+      %th
+        = I18n.t('show', :default => "Show")
+      - if user_signed_in?
+        %th
+          = I18n.t('edit', :default => "Edit")
+        %th
+          = I18n.t('delete', :default => "Delete")
+  %tbody
+    = render @countries
+%br
+= will_paginate @countries, :class => "pagination pagination-centered", :renderer => "BootstrapLinkRenderer"
+
+
+= link_to 'New Country', new_country_path

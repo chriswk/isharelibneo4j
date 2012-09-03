@@ -1,0 +1,15 @@
+%tr
+  %td= country.iso_3166_1
+  %td
+    = image_tag "/assets/flags/#{country.iso_3166_1.downcase}.png", :alt=>""
+    = country.name
+  %td
+    = link_to country, :class => "btn" do
+      %i.icon-search
+    - if user_signed_in?
+      %td
+        = link_to edit_country_path(country), :class => "btn" do
+          %i.icon-edit
+      %td
+        = link_to country, :confirm => 'Are you sure?', :method => :delete, :class => "btn btn-danger" do
+          %i.icon-trash

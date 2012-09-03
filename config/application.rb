@@ -6,7 +6,6 @@ require 'active_resource/railtie'
 require 'rails/test_unit/railtie'
 require 'sprockets/railtie'
 require 'neo4j'
-require 'neo4j-admin/railtie'
 require 'will_paginate'
 require 'neo4j-will_paginate'
 

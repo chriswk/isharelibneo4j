@@ -1,0 +1,15 @@
+%p#notice= notice
+
+%p
+  %b Code:
+  = @country.iso_3166_1
+%p
+  %b Name:
+  = @country.name
+%p
+  %b Flag:
+  = image_tag("/assets/flags/#{@country.iso_3166_1.downcase}.png", :alt => "No flag")
+
+= link_to 'Edit', edit_country_path(@country)
+\|
+= link_to 'Back', countries_path

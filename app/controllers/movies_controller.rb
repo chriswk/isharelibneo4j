@@ -80,4 +80,18 @@ class MoviesController < ApplicationController
       format.json { head :no_content }
     end
   end
+
+  #GET /movies/1/fetch_tmdb
+  def fetch_tmdb
+    movie = Movie.find(params[:id])
+    if movie != nil
+      if movie.tmdb_id != nil
+        movie.update_from_tmdb
+      end
+    end
+    respond_to do |format|
+      format.html { head :ok }
+      format.json { head :ok }
+    end
+  end
 end

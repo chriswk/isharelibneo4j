@@ -48,8 +48,12 @@ class Movie < Neo4j::Rails::Model
       c = Country.find_or_create_by(:iso_3166_1 => country.iso_3166_1)
       c.name = country.name
       c.save
-      self.countries << c
+      self.countries << c unless self.countries.find(c)
     end
+  end
+
+  def find_tmdb_id
+    @pf = TmdbMovie.find(:title => self.title, :year => self.year)
   end
   
 end

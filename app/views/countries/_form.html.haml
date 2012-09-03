@@ -1,0 +1,8 @@
+= semantic_form_for @country do |f|
+  = f.semantic_errors :state
+  = f.inputs do
+    = f.input :iso_3166_1
+    = f.input :name
+  .actions
+    = f.buttons do
+      = f.commit_button
