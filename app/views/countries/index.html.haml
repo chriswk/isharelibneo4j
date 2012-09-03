@@ -6,11 +6,10 @@
       %th Name
       %th
         = I18n.t('show', :default => "Show")
-      - if user_signed_in?
-        %th
-          = I18n.t('edit', :default => "Edit")
-        %th
-          = I18n.t('delete', :default => "Delete")
+      %th
+        = I18n.t('edit', :default => "Edit")
+      %th
+        = I18n.t('delete', :default => "Delete")
   %tbody
     = render @countries
 %br
