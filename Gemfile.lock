@@ -35,6 +35,8 @@ GEM
       ZenTest (>= 4.4.1)
     autotest-growl (0.2.16)
     bootstrap-sass (2.0.4.2)
+    bootstrap-will_paginate (0.0.8)
+      will_paginate
     bouncy-castle-java (1.5.0146.1)
     builder (3.0.0)
     chosen-rails (0.9.8.2)
@@ -73,6 +75,7 @@ GEM
       thor (~> 0.14)
     jruby-openssl (0.7.7)
       bouncy-castle-java (>= 1.5.0146.1)
+    json (1.7.5)
     json (1.7.5-java)
     mail (2.4.4)
       i18n (>= 0.4.0)
@@ -89,6 +92,10 @@ GEM
     neo4j-community (1.7.1-java)
     neo4j-core (2.0.1-java)
       neo4j-community (>= 1.7.0)
+    neo4j-will_paginate (0.1.2-java)
+      activesupport (~> 3.0)
+      neo4j (>= 2.0.0.alpha.4)
+      will_paginate (~> 3.0)
     neo4j-wrapper (2.0.1-java)
       neo4j-core (= 2.0.1)
     orm_adapter (0.4.0)
@@ -156,6 +163,7 @@ GEM
     uglifier (1.2.7)
       execjs (>= 0.3.0)
       multi_json (~> 1.3)
+    will_paginate (3.0.3)
 
 PLATFORMS
   java
@@ -165,6 +173,7 @@ DEPENDENCIES
   autotest
   autotest-growl
   bootstrap-sass (~> 2.0.3)
+  bootstrap-will_paginate
   chosen-rails
   coffee-rails (~> 3.2.1)
   formtastic (~> 2.1)
@@ -176,9 +185,11 @@ DEPENDENCIES
   json
   neo4j (~> 2.0.1)
   neo4j-admin
+  neo4j-will_paginate
   rails
   rspec-rails
   ruby-tmdb3
   sass-rails (~> 3.2.3)
   therubyrhino
   uglifier (>= 1.0.3)
+  will_paginate

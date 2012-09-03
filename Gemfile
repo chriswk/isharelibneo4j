@@ -43,3 +43,7 @@ gem "formtastic-plus-bootstrap"
 
 gem 'ruby-tmdb3'
 gem 'neo4j-admin'
+
+gem 'will_paginate'
+gem 'neo4j-will_paginate'
+gem 'bootstrap-will_paginate'

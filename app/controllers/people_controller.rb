@@ -2,7 +2,7 @@ class PeopleController < ApplicationController
   # GET /people
   # GET /people.json
   def index
-    @people = Person.all
+    @people = Person.all.paginate(:page => params[:page] || 1, :per_page => params[:per_page] || 10)
 
     respond_to do |format|
       format.html # index.html.erb
