@@ -7,5 +7,7 @@ Isharelib::Application.routes.draw do
     end
   end
 
+  resources :countries
+
   root :to => "movies#index"
 end
