@@ -1,6 +1,7 @@
-%li.pull-right
-  - if current_user
-    = "Signed in as #{current_user.nickname || current_user.name}"
-    = link_to "Sign out", signout_path
-  - else
-    = render "social_login"
+%ul
+  %li.pull-right
+    - if current_user
+      = "Signed in as #{current_user.nickname || current_user.name}"
+      = link_to "Sign out", signout_path
+    - else
+      = render "social_login"
