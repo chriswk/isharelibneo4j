@@ -1,5 +1,6 @@
 Isharelib::Application.routes.draw do
   resources :people
+  resources :countries
 
   resources :movies do
     member do
@@ -7,7 +8,8 @@ Isharelib::Application.routes.draw do
     end
   end
 
-  resources :countries
-
+  match 'auth/:provider/callback', to: 'sessions#create'
+  match 'auth/failure', to: redirect('/')
+  match 'signout', to: 'sessions#destroy', as: 'signout'
   root :to => "movies#index"
 end
