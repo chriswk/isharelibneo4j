@@ -34,6 +34,7 @@ GEM
     autotest (4.4.6)
       ZenTest (>= 4.4.1)
     autotest-growl (0.2.16)
+    bcrypt-ruby (3.0.1-java)
     bootstrap-sass (2.0.4.2)
     bootstrap-will_paginate (0.0.8)
       will_paginate
@@ -208,6 +209,7 @@ DEPENDENCIES
   ZenTest
   autotest
   autotest-growl
+  bcrypt-ruby (~> 3.0.0)
   bootstrap-sass (~> 2.0.3)
   bootstrap-will_paginate
   chosen-rails

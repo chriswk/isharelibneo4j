@@ -5,7 +5,7 @@ gem 'rails'
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
 
 gem 'neo4j', '~> 2.0.1'
-
+gem 'bcrypt-ruby', '~> 3.0.0'
 group :development do
   gem 'rspec-rails'
 end
