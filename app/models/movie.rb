@@ -11,6 +11,7 @@ class Movie < Neo4j::Rails::Model
   has_n(:countries).to(Country)
   has_n(:people).from(Person, :acted_in)
   has_one(:sequel)
+  has_n(:posters).to(Poster)
   validates_presence_of :title
   validates_uniqueness_of :tmdb_id, :imdb_id
 
