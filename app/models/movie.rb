@@ -33,9 +33,18 @@ class Movie < Neo4j::Rails::Model
     self.overview = tm_movie.overview
     map_countries(tm_movie.production_countries)
     map_cast(tm_movie.cast)
-
+    map_posters(tm_movie.posters)
   end
-  
+
+  def map_posters(posters)
+    posters.each do |poster|
+      puts "Creating poster entry #{poster}"
+      pp = Poster.find_or_create_by(:file_path => poster.file_path)
+      pp.map_tmdb(poster)
+      pp.save
+      self.posters << pp unless self.posters.find(pp)
+    end
+  end
   def map_cast(cast)
     cast.each do |role|
       person = Person.find_or_create_by(:tmdb_id => role.id)
