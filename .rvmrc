@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-environment_id="jruby-1.7.0@isharelib"
+environment_id="jruby-1.7.1@isharelib"
 
 # Uncomment following line if you want options to be set only for given project.
 PROJECT_JRUBY_OPTS=( --1.9 )
