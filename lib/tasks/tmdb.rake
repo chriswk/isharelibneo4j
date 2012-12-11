@@ -14,7 +14,7 @@ namespace :tmdb do
   def create_initializer(apiKey, lang, initializerFile)
     tmdbSetup = <<-eos
 require 'rubygems'
-require 'ruby-tmdb'
+require 'ruby-tmdb3'
 Tmdb.api_key = "#{apiKey}"
 Tmdb.default_language = "#{lang}"
     eos
