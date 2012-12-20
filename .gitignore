@@ -50,7 +50,6 @@ tmp/*
 /spec/views
 /specifications
 /config/initializers/tmdb.rb
-/config/initializers/omniauth.rb
 
 # scm revert files
 **.orig
