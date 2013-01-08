@@ -9,7 +9,7 @@ Isharelib::Application.configure do
   config.action_controller.perform_caching = true
 
   # Disable Rails's static asset server (Apache or nginx will already do this)
-  config.serve_static_assets = false
+  config.serve_static_assets = true
 
   # Compress JavaScripts and CSS
   config.assets.compress = true
@@ -39,6 +39,10 @@ Isharelib::Application.configure do
   # Use a different logger for distributed setups
   # config.logger = ActiveSupport::TaggedLogging.new(SyslogLogger.new)
 
+  STDOUT.sync = true
+  logger = Logger.new(STDOUT)
+  logger.level = Logger::INFO
+  config.logger = logger
   # Use a different cache store in production
   # config.cache_store = :mem_cache_store
 
