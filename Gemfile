@@ -55,3 +55,5 @@ gem 'omniauth-openid'
 gem 'omniauth-twitter'
 
 gem 'sidekiq'
+gem 'sinatra'
+gem 'slim'
