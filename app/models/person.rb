@@ -36,15 +36,4 @@ class Person < Neo4j::Rails::Model
     self.tmdb_id = tmdb.id unless self.tmdb_id
   end
   
-  def update_from_tmdb
-    tmdbPerson = TmdbCast.find(:id => self.tmdb_id)
-    map_from_tmdb(tmdbPerson)
-    puts "Person now [#{self} | tmdb_id : #{self.tmdb_id} | name: #{self.name}]"
-    tmdbPerson.filmography.each do |film|
-      curMovie = Movie.find_or_create_by(:tmdb_id => film.id)
-      puts "Found movie [#{curMovie} - #{curMovie.tmdb_id} - #{curMovie.title}]"
-      curMovie.update_from_tmdb
-    end
-    self.save
-  end
 end
