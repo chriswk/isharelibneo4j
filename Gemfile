@@ -5,6 +5,7 @@ gem 'rails'
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
 
 gem 'neo4j'
+gem 'neo4j-community', '1.8.2', :git => 'git@github.com:dnagir/neo4j-community.git'
 gem 'bcrypt-ruby'
 group :development do
   gem 'rspec-rails'
@@ -42,11 +43,12 @@ gem "formtastic-plus-bootstrap"
 
 
 gem 'ruby-tmdb3'
-gem 'neo4j-admin'
 
+=begin
 gem 'will_paginate', "~> 3.0"
 gem 'neo4j-will_paginate'
 gem 'bootstrap-will_paginate'
+=end
 
 gem 'omniauth-github'
 gem 'omniauth-openid'

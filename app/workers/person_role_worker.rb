@@ -1,5 +1,5 @@
 class PersonRoleWorker
-  include SideKiq::Worker
+  include Sidekiq::Worker
 
   def perform(movie, role)
     person = Person.find_or_create_by(:tmdb_id => role.id)

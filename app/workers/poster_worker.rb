@@ -1,5 +1,5 @@
 class PosterWorker
-  include SideKiq::Worker
+  include Sidekiq::Worker
 
   def perform(movie, poster)
     p = Poster.find_or_create_by(:file_path => poster.file_path)

@@ -1,5 +1,5 @@
 class PersonWorker
-  include SideKiq::Worker
+  include Sidekiq::Worker
 
   def perform(person)
     cast = Person.find_or_create_by(:tmdb_id => person.id)

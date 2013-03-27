@@ -1,5 +1,5 @@
 class MovieWorker
-  include SideKiq::Worker
+  include Sidekiq::Worker
   sidekiq_options queue: "high"
 
   def perform(tmdb_id)

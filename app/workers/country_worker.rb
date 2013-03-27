@@ -1,5 +1,5 @@
 class CountryWorker
-  include SideKiq::Worker
+  include Sidekiq::Worker
 
   def perform(movie, country)
     c = Country.find_or_create_by(:iso_3166_1 => country.iso_3166_1)
