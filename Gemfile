@@ -44,11 +44,9 @@ gem "formtastic-plus-bootstrap"
 
 gem 'ruby-tmdb3'
 
-=begin
 gem 'will_paginate', "~> 3.0"
 gem 'neo4j-will_paginate'
 gem 'bootstrap-will_paginate'
-=end
 
 gem 'omniauth-github'
 gem 'omniauth-openid'
