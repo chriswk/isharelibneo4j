@@ -13,7 +13,7 @@
   %tbody
     = render @countries
 %br
-= will_paginate @countries, :class => "pagination pagination-centered", :renderer => "BootstrapLinkRenderer"
+= will_paginate @countries, :class => "pagination pagination-centered"
 
 
 = link_to 'New Country', new_country_path
