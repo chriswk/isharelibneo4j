@@ -22,7 +22,7 @@ class PersonService
   end
 
   def self.update_from_tmdb(tmdbId)
-    map_from_tmdb(TmdbCast.find(:id => tmdbId))
+    map_from_tmdb(TmdbCast.find(:id => tmdbId), true)
   end
 
 end

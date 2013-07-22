@@ -1,14 +1,16 @@
 class MovieService
-  def self.update_from_tmdb(tmdb_id)
-    movie = Movie.find_or_create_by(:tmdb_id => tmdb_id)
-    tm_movie = TmdbMovie.find(:id => movie.tmdb_id)
-    puts "Updateing #{movie}"
-    movie.map_tmdb(tm_movie)
-    movie.save
-    puts "Updated to [#{movie} - title: #{movie.title} - tmdb_id #{movie.tmdb_id}]"
-    map_countries(movie, tm_movie.production_countries)
-    map_cast(movie, tm_movie.cast)
-    map_posters(movie, tm_movie.posters)
+  def self.update_from_tmdb(*ids)
+    ids.each do |tmdb_id|
+      movie = Movie.find_or_create_by(:tmdb_id => tmdb_id)
+      tm_movie = TmdbMovie.find(:id => movie.tmdb_id)
+      puts "Updateing #{movie}"
+      movie.map_tmdb(tm_movie)
+      movie.save
+      puts "Updated to [#{movie} - title: #{movie.title} - tmdb_id #{movie.tmdb_id}]"
+      map_countries(movie, tm_movie.production_countries)
+      map_cast(movie, tm_movie.cast)
+      map_posters(movie, tm_movie.posters)
+    end
   end
 
   def self.map_countries(movie, prod_countries)
