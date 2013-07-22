@@ -12,6 +12,7 @@ class Movie < Neo4j::Rails::Model
   has_n(:people).from(Person, :acted_in)
   has_one(:sequel)
   has_n(:posters).to(Poster)
+  has_n(:genres).to(Genre)
   validates_presence_of :title
 
   validates_uniqueness_of :tmdb_id, :imdb_id
