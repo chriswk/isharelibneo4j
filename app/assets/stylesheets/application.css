@@ -9,7 +9,9 @@
  * compiled file, but it's generally better to create a new file per style scope.
  *
  *= require bootstrap-without-forms
+ *= require _bootstrap-responsive
  *= require formtastic-plus-bootstrap
+ *= require formtastic-plus-bootstrap/responsive
  *= require_self
  *= require_tree .
  */

@@ -11,6 +11,6 @@
     = f.text_field :name
   .field
     = f.label :birth_date
-    = f.date_select :birth_date
+    = f.date_select :birth_date, :start_year => 1900, :end_year => Time.now.year
   .actions
     = f.submit 'Save'

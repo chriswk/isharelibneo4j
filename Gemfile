@@ -5,8 +5,8 @@ gem 'rails'
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
 
 gem 'neo4j'
-gem 'neo4j-community', '1.8.2', :git => 'git@github.com:dnagir/neo4j-community.git'
 gem 'bcrypt-ruby'
+gem 'puma'
 group :development do
   gem 'rspec-rails'
 end
@@ -14,7 +14,7 @@ end
 group :test do
   gem 'autotest'
   gem 'autotest-growl'
-  gem 'ZenTest'
+  gem 'ZenTest', '4.9.2'
   gem 'rspec-rails'
 end
 
@@ -38,7 +38,7 @@ gem 'jquery-rails'
 gem 'haml'
 gem 'haml-rails'
 
-gem "formtastic", "~> 2.1"
+gem "formtastic", "~> 2.2"
 gem "formtastic-plus-bootstrap"
 
 

@@ -3,4 +3,6 @@ class Country < Neo4j::Rails::Model
   property :name, :type => String
   index :name
   has_n(:movies).from(Movie, :countries)
+
+
 end

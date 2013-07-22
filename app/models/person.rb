@@ -17,23 +17,9 @@ class Person < Neo4j::Rails::Model
     age
   end
   
-  def map_movie_role(movie, role)
-    puts "Mapping movie role in [#{movie} with id #{movie.tmdb_id} and title #{movie.title} - #{role.name}] 
-          and character name [#{role.character}]"
-    map_from_tmdb(TmdbCast.find(:id => role.id))
-    if !self.acted_in.find(movie)
-      curRole = self.acted_in_rels.connect(movie, {:title => role.name})
-      curRole.character = role.character
-      curRole.save
-    end
-    self.save
-  end
+
   
-  def map_from_tmdb(tmdb)
-    self.name = tmdb.name
-    self.birth_date = Date.parse(tmdb.birthday) rescue self.birth_date = Date.parse("1970-01-01")
-    self.biography = tmdb.biography
-    self.tmdb_id = tmdb.id unless self.tmdb_id
-  end
-  
+
+
+
 end

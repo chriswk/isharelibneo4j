@@ -14,4 +14,5 @@ class Poster < Neo4j::Rails::Model
     end
     self.save
   end
+
 end

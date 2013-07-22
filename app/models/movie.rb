@@ -30,5 +30,6 @@ class Movie < Neo4j::Rails::Model
     self.year = self.released.year
     self.overview = tm_movie.overview
   end
+
 end
 
