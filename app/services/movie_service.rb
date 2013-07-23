@@ -37,7 +37,7 @@ class MovieService
       g = Genre.find_or_create_by(:tmdb_id => genre.id)
       g.name = genre.name
       g.save
-      movie.genres << g unless m.genres.find(g)
+      movie.genres << g unless movie.genres.find(g)
     end
   end
 end

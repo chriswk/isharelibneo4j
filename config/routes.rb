@@ -13,5 +13,4 @@ Isharelib::Application.routes.draw do
   match 'auth/failure', to: redirect('/')
   match 'signout', to: 'sessions#destroy', as: 'signout'
   root :to => "movies#index"
-  mount Sidekiq::Web, at: "/sidekiq"
-end
+  end

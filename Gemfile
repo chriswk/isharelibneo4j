@@ -51,7 +51,3 @@ gem 'bootstrap-will_paginate'
 gem 'omniauth-github'
 gem 'omniauth-openid'
 gem 'omniauth-twitter'
-
-gem 'sidekiq'
-gem 'sinatra'
-gem 'slim'

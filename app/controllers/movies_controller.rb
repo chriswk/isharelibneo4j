@@ -86,7 +86,7 @@ class MoviesController < ApplicationController
     movie = Movie.find(params[:id])
     if movie != nil
       if movie.tmdb_id != nil
-        movie.update_from_tmdb
+        MovieService.update_from_tmdb(movie.tmdb_id)
       end
     end
     respond_to do |format|

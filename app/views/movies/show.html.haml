@@ -27,4 +27,5 @@
     \|
     = link_to 'Back', movies_path
     \|
-    %button{:class => "find_tmdb", :text => "Fetch movie from TheMovieDb"}
+    %button#find_tmdb.button.primary{:data => {:url => "#{fetch_tmdb_movie_url}"}}
+      Update from TheMovieDb
